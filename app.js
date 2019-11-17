@@ -11,7 +11,7 @@ const config = require('./config');
 // Verbose Log Helper
 const verbose = (...args) => {
     // Log if verbose
-    if (config.verbose) console.log(...args);
+    if (process.argv[2] === 'verbose') console.log(...args);
 };
 // Stores stats
 const stats = {

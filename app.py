@@ -1,13 +1,14 @@
 from datetime import datetime
 # Import os
 import os
+# Import sys
+import sys
 # Import Json
 import json
 # Import helpers
 from py.helpers import size_to_string
 # import File copier
 from shutil import copy
-
 # Start Time
 start_time = datetime.now()
 
@@ -18,7 +19,7 @@ with open('./config.json') as config_file:
 
 # Verbose log Helper
 def verbose(*args):
-    if config['verbose'] is True:
+    if 'verbose' in sys.argv:
         print(*args)
 
 
