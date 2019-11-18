@@ -17,7 +17,7 @@ const stats = {
 
 // Find source folder.
 if (!Fs.existsSync(config.from)) {
-    console.log(`Cannot find source folder: ${config.to}`);
+    console.log(`Cannot find source folder: ${config.from}`);
     exit()
 }
 

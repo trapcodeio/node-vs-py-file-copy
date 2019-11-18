@@ -28,8 +28,8 @@ to_dir = config['to']
 from_dir = config['from']
 
 # Find source folder
-if not os.path.exists(to_dir):
-    print('Cannot find source folder: ${config.to}')
+if not os.path.exists(from_dir):
+    print('Cannot find source folder: '+from_dir)
     exit()
 
 # Check if to folder exists
@@ -39,7 +39,8 @@ if not os.path.exists(to_dir):
         print('Creating: ' + to_dir)
         os.mkdir(to_dir)
     except:
-        print('Cannot create folder: ' + to_dir + '}, try creating this folder manually.')
+        print('Cannot create folder: ' + to_dir +
+              '}, try creating this folder manually.')
         exit()
 
 # Holds all files

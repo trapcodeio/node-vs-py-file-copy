@@ -28,5 +28,5 @@ module.exports.exit = () => process.exit();
  */
 module.exports.verbose = (...args) => {
     // Log if verbose
-    if (process.argv[2] === 'verbose') console.log(...args);
+    if (process.argv[2] !== 'silent') console.log(...args);
 };

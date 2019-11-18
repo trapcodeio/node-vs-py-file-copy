@@ -14,5 +14,5 @@ def size_to_string(num, suffix='B'):
 
 # Verbose log Helper
 def verbose(*args):
-    if 'verbose' in sys.argv:
+    if 'silent' not in sys.argv:
         print(*args)
