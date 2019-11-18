@@ -40,10 +40,9 @@ const files = [];
 /**
  * Scan folder
  * @param dir - Folder to scan
- * @param deep - Should open folders
  * @param recursive - Use if calling scan_dir from scan_dir
  */
-const scan_dir = (dir, deep, recursive = false) => {
+const scan_dir = (dir, recursive = false) => {
     // Check if path exists if not recursive.
     // Prevents checking a file when we are already sure it exists
     if (!recursive && !Fs.existsSync(dir)) {
@@ -59,9 +58,9 @@ const scan_dir = (dir, deep, recursive = false) => {
         const content_is_dir = content_path !== dir && Fs.statSync(content_path).isDirectory();
 
         // if path is directory scan_dir else add full path to array
-        if (deep && content_is_dir) {
+        if (content_is_dir) {
             stats.folders++;
-            scan_dir(content_path, true, true);
+            scan_dir(content_path, true);
         } else {
             files.push(content_path);
         }
@@ -73,7 +72,7 @@ const scan_dir = (dir, deep, recursive = false) => {
 // ------------------------------------------------------------------------------------------------
 console.log(`SCANNING: ${config.from}`);
 // Scan Dir
-scan_dir(config.from, config.scan_deep);
+scan_dir(config.from);
 
 // Loop through files and copy each to new destination
 for (const file of files) {
