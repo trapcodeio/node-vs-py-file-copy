@@ -1,5 +1,3 @@
-// Start Timer
-console.time('TOTAL TIME');
 // Import Fs for file management.
 const Fs = require('fs');
 // Import Path for path management.
@@ -8,6 +6,10 @@ const Path = require('path');
 const {size_to_string, exit, verbose} = require("./js/helpers");
 // Import Configuration.
 const config = require('./config');
+
+// Start Timer
+console.time('TOTAL TIME');
+
 // Stores stats
 const stats = {
     files: 0,
