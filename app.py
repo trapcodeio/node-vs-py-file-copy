@@ -1,27 +1,20 @@
-from datetime import datetime
 # Import os
 import os
-# Import sys
-import sys
 # Import Json
 import json
 # Import helpers
-from py.helpers import size_to_string
+from py.helpers import size_to_string, verbose
 # import File copier
 from shutil import copy
-# Start Time
+# Import date library
+from datetime import datetime
+
+# Start Timer
 start_time = datetime.now()
 
 # Import Configuration
 with open('./config.json') as config_file:
     config = json.load(config_file)
-
-
-# Verbose log Helper
-def verbose(*args):
-    if 'verbose' in sys.argv:
-        print(*args)
-
 
 # Stores stats
 stats = dict(
@@ -33,6 +26,11 @@ stats = dict(
 # Shorthand var to config
 to_dir = config['to']
 from_dir = config['from']
+
+# Find source folder
+if not os.path.exists(to_dir):
+    print('Cannot find source folder: ${config.to}')
+    exit()
 
 # Check if to folder exists
 if not os.path.exists(to_dir):

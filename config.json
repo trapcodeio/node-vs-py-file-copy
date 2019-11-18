@@ -1,7 +1,0 @@
-{
-  "from": "/home/evil/Music",
-  "to": "/home/evil/Mover2",
-  "scan_deep": true,
-  "scan_only": false,
-  "verbose": true
-}

@@ -5,20 +5,21 @@ const Fs = require('fs');
 // Import Path for path management.
 const Path = require('path');
 // Import helpers
-const {size_to_string, exit} = require("./js/helpers");
+const {size_to_string, exit, verbose} = require("./js/helpers");
 // Import Configuration.
 const config = require('./config');
-// Verbose Log Helper
-const verbose = (...args) => {
-    // Log if verbose
-    if (process.argv[2] === 'verbose') console.log(...args);
-};
 // Stores stats
 const stats = {
     files: 0,
     folders: 0,
     size: 0
 };
+
+// Find source folder.
+if (!Fs.existsSync(config.from)) {
+    console.log(`Cannot find source folder: ${config.to}`);
+    exit()
+}
 
 if (!Fs.existsSync(config.to)) {
     // try creating destination folder or fail
@@ -33,7 +34,6 @@ if (!Fs.existsSync(config.to)) {
 
 // Holds all files
 const files = [];
-
 
 /**
  * Scan folder

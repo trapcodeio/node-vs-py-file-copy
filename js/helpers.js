@@ -21,3 +21,12 @@ module.exports.size_to_string = (size, decimals = 0) => {
  * ShortHand Exit Helper
  */
 module.exports.exit = () => process.exit();
+
+/**
+ * Log if verbose option is on.
+ * @param args
+ */
+module.exports.verbose = (...args) => {
+    // Log if verbose
+    if (process.argv[2] === 'verbose') console.log(...args);
+};

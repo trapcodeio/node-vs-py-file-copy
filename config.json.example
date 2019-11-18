@@ -1,0 +1,6 @@
+{
+  "from": "/path/to/source/folder",
+  "to": "/path/to/destination/folder",
+  "scan_deep": true,
+  "scan_only": false
+}
