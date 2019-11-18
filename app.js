@@ -3,7 +3,7 @@ const Fs = require('fs');
 // Import Path for path management.
 const Path = require('path');
 // Import helpers
-const {size_to_string, exit, verbose} = require("./js/helpers");
+const {size_to_string, exit, verbose} = require("./helpers/helper");
 // Import Configuration.
 const config = require('./config');
 
