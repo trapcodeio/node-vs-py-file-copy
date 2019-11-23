@@ -9,12 +9,12 @@ from shutil import copy
 # Import date library
 from datetime import datetime
 
+# Start Timer
+start_time = datetime.now()
+
 # Import Configuration
 with open('./config.json') as config_file:
     config = json.load(config_file)
-
-# Start Timer
-start_time = datetime.now()
 
 # Stores stats
 stats = dict(
